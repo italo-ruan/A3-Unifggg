@@ -35,7 +35,7 @@ public int Salva (Alunos aluno){
     
 try {
     String inserir;
-inserir = "INSERT INTO alunos VALUES('" +aluno.getNome() +"', '" +  aluno.getEndereco()+ "','" + aluno.getEstado()+ "' , '" + aluno.getPais()+ "' , " +  aluno.getCpf()+" ,'" + aluno.getBairro()+ "' ,'" + aluno.getDataNasc() + "' ,'" + aluno.getCidade()+ "', " +  aluno.getNumero()+","+ aluno.getCelular()+",'"+aluno.getEmail()+"')"; 
+inserir = "INSERT INTO alunos VALUES('" +aluno.getNome() +"', '" +  aluno.getEndereco()+ "','" + aluno.getEstado()+ "' , '" + aluno.getPais()+ "' , " +  aluno.getCpf()+" ,'" + aluno.getBairro()+ "' ,'" + aluno.getDataNasc() + "' ,'" + aluno.getCidade()+ "', " +  aluno.getNumero()+","+ aluno.getCelular()+")"; 
         
            conec = st.executeUpdate(inserir);
             return conec;//retonar 1
