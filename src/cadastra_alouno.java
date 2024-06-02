@@ -1,10 +1,7 @@
 
+
 import Dados.Alunos;
 import dados.AlunoDao;
-import javax.swing.JOptionPane;
-
-
-
 
 public class cadastra_alouno extends javax.swing.JFrame {
 
@@ -47,19 +44,17 @@ public class cadastra_alouno extends javax.swing.JFrame {
         cpPais = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         cpSx = new javax.swing.JComboBox<>();
-        cpMatricula = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         btnSimF = new javax.swing.JRadioButton();
         btnNf = new javax.swing.JRadioButton();
         jLabel15 = new javax.swing.JLabel();
         cpDiciencia = new javax.swing.JTextField();
-        btnSalvarcd = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         fotocA = new javax.swing.JLabel();
+        btnSalvarcd = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -119,9 +114,6 @@ public class cadastra_alouno extends javax.swing.JFrame {
             }
         });
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel18.setText("N° Matricula:");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -167,12 +159,7 @@ public class cadastra_alouno extends javax.swing.JFrame {
                                     .addComponent(cpNumero)
                                     .addComponent(cpCpf)
                                     .addComponent(cpCidade)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -213,12 +200,9 @@ public class cadastra_alouno extends javax.swing.JFrame {
                             .addComponent(cpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel13)
-                        .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel18))
-                    .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
 
@@ -232,15 +216,6 @@ public class cadastra_alouno extends javax.swing.JFrame {
         btnNf.setText("Não");
 
         jLabel15.setText("Se Sim, Qual ?");
-
-        btnSalvarcd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnSalvarcd.setForeground(new java.awt.Color(0, 255, 0));
-        btnSalvarcd.setText("Salvar");
-        btnSalvarcd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarcdActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -256,14 +231,9 @@ public class cadastra_alouno extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(114, 114, 114)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(cpDiciencia, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalvarcd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(220, 220, 220))))
+                    .addComponent(jLabel15)
+                    .addComponent(cpDiciencia, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,9 +251,7 @@ public class cadastra_alouno extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cpDiciencia)
-                            .addComponent(btnSalvarcd, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cpDiciencia, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
                         .addGap(41, 41, 41))))
         );
 
@@ -306,7 +274,7 @@ public class cadastra_alouno extends javax.swing.JFrame {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,6 +288,15 @@ public class cadastra_alouno extends javax.swing.JFrame {
 
         fotocA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Design sem nome (10).png"))); // NOI18N
         fotocA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnSalvarcd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalvarcd.setForeground(new java.awt.Color(0, 255, 0));
+        btnSalvarcd.setText("Salvar");
+        btnSalvarcd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarcdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -342,6 +319,10 @@ public class cadastra_alouno extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalvarcd)
+                .addGap(342, 342, 342))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,9 +334,11 @@ public class cadastra_alouno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(51, 51, 51)
+                .addGap(48, 48, 48)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(btnSalvarcd)
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -377,23 +360,18 @@ public class cadastra_alouno extends javax.swing.JFrame {
     }//GEN-LAST:event_cpCidadeActionPerformed
 
     private void cpSxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpSxActionPerformed
-
-
-
-
-
         // TODO add your handling code here:
     }//GEN-LAST:event_cpSxActionPerformed
 
     private void btnSalvarcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarcdActionPerformed
-        
+    
     Alunos aluno;
-      
+        
     AlunoDao Dao;
     boolean conec;
     int resp;
-    
-    
+        
+        
     aluno = new Alunos(); 
     aluno.setNome(cpNome.getText());
     aluno.setCpf(Double.parseDouble(cpCpf.getText()));  
@@ -405,31 +383,29 @@ public class cadastra_alouno extends javax.swing.JFrame {
     aluno.setCidade(cpCidade.getText());   
     aluno.setNumero(Double.parseDouble(cpNumero.getText()));    
     aluno.setCelular(Double.parseDouble(cpCelular.getText()));    
-     
+      
+        
     
     Dao = new AlunoDao();
     conec = Dao.conectar();
-    
+       
     if (conec==false){
     JOnpitionPane.showMessagerDialog(null,"erro de conexão!");
-    
+
     }else{
-      
+
        resp =Dao.Salva(aluno);
     if (resp==1){
      JOnpitionPane.showMessagerDialog(null,"dados recebidos!");
      apagar();
-    
-    
-    }else{
-    JOnpitionPane.showMessagerDialog(null,"erro ao salvar!");
-    
-    }
-        
+
+
+    }//GEN-LAST:event_btnSalvarcdActionPerformed
+
     Dao.desconectar();
     
     }
-    }//GEN-LAST:event_btnSalvarcdActionPerformed
+    }                                           
 public void apagar() {
 cpNome.setText("");
      cpEndereco.setText("");
@@ -441,7 +417,7 @@ cpNome.setText("");
     cpCidade.setText("");
     cpBairro.setText("");
     cpEstado.setText("");
-    cpMatricula.setText("");
+  
 
 }
 
@@ -494,7 +470,6 @@ cpNome.setText("");
     private javax.swing.JTextField cpEmail;
     private javax.swing.JTextField cpEndereco;
     private javax.swing.JTextField cpEstado;
-    private javax.swing.JTextField cpMatricula;
     private javax.swing.JTextField cpNome;
     private javax.swing.JTextField cpNumero;
     private javax.swing.JTextField cpPais;
@@ -509,7 +484,6 @@ cpNome.setText("");
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -524,4 +498,6 @@ cpNome.setText("");
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+   
 }

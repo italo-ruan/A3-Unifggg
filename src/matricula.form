@@ -101,8 +101,12 @@
                                       <Component id="jComboBox2" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="258" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -111,11 +115,6 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Component id="btnSalvarM" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -232,9 +231,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cpMatricula">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpMatriculaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -318,7 +314,7 @@
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <Component id="cpModalidade" min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="249" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="252" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -382,9 +378,6 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpModalidadeActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -452,9 +445,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Salvar"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarMActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

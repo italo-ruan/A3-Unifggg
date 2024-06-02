@@ -280,7 +280,7 @@ public class menuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 415, Short.MAX_VALUE))
         );
 
@@ -319,7 +319,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
     new tabela().setVisible(true);
-    this.dispose();
+    //this.dispose();
     
 
 

@@ -94,12 +94,6 @@ public class matricula extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Nº Matricula :");
 
-        cpMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpMatriculaActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Data do Cadastro :");
 
@@ -127,11 +121,6 @@ public class matricula extends javax.swing.JFrame {
         jLabel9.setText("Modalidade :");
 
         cpModalidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "musculaçao", "Nataçao", "Crossfit", " " }));
-        cpModalidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpModalidadeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -150,7 +139,7 @@ public class matricula extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(cpModalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 249, Short.MAX_VALUE))
+                .addGap(0, 252, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,11 +172,6 @@ public class matricula extends javax.swing.JFrame {
 
         btnSalvarM.setForeground(new java.awt.Color(0, 255, 0));
         btnSalvarM.setText("Salvar");
-        btnSalvarM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarMActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,17 +215,16 @@ public class matricula extends javax.swing.JFrame {
                                 .addGap(121, 121, 121)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 258, Short.MAX_VALUE)))
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnSalvarM)
                 .addGap(147, 147, 147))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,18 +276,6 @@ public class matricula extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cpModalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpModalidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpModalidadeActionPerformed
-
-    private void cpMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpMatriculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpMatriculaActionPerformed
-
-    private void btnSalvarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalvarMActionPerformed
 
     /**
      * @param args the command line arguments
