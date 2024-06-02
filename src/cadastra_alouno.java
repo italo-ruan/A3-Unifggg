@@ -47,6 +47,8 @@ public class cadastra_alouno extends javax.swing.JFrame {
         cpPais = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         cpSx = new javax.swing.JComboBox<>();
+        cpMatricula = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         btnSimF = new javax.swing.JRadioButton();
@@ -117,6 +119,9 @@ public class cadastra_alouno extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel18.setText("N° Matricula:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -162,7 +167,12 @@ public class cadastra_alouno extends javax.swing.JFrame {
                                     .addComponent(cpNumero)
                                     .addComponent(cpCpf)
                                     .addComponent(cpCidade)))))
-                    .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -203,9 +213,12 @@ public class cadastra_alouno extends javax.swing.JFrame {
                             .addComponent(cpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18))
+                    .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
 
@@ -340,9 +353,9 @@ public class cadastra_alouno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(48, 48, 48)
+                .addGap(51, 51, 51)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -364,6 +377,11 @@ public class cadastra_alouno extends javax.swing.JFrame {
     }//GEN-LAST:event_cpCidadeActionPerformed
 
     private void cpSxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpSxActionPerformed
+
+
+
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_cpSxActionPerformed
 
@@ -396,11 +414,24 @@ public class cadastra_alouno extends javax.swing.JFrame {
     JOnpitionPane.showMessagerDialog(null,"erro de conexão!");
     
     }else{
-        JOptionPane.showMessageDialog(null, "salvo");
-       resp =Dao.salva(aluno);
+      
+       resp =Dao.Salva(aluno);
     if (resp==1){
      JOnpitionPane.showMessagerDialog(null,"dados recebidos!");
-     cpNome.setText("");
+     apagar();
+    
+    
+    }else{
+    JOnpitionPane.showMessagerDialog(null,"erro ao salvar!");
+    
+    }
+        
+    Dao.desconectar();
+    
+    }
+    }//GEN-LAST:event_btnSalvarcdActionPerformed
+public void apagar() {
+cpNome.setText("");
      cpEndereco.setText("");
      cpCpf.setText("");
      cpPais.setText("");
@@ -409,20 +440,10 @@ public class cadastra_alouno extends javax.swing.JFrame {
     cpEmail.setText("");
     cpCidade.setText("");
     cpBairro.setText("");
-    
-    
-    
-    
-    }else{
-    JOnpitionPane.showMessagerDialog(null,"dados salvos com sucesso!");
-    
-    }
-        
-    Dao.desconectar();
-    
-    }
-    }//GEN-LAST:event_btnSalvarcdActionPerformed
+    cpEstado.setText("");
+    cpMatricula.setText("");
 
+}
 
     /**
      * @param args the command line arguments
@@ -473,6 +494,7 @@ public class cadastra_alouno extends javax.swing.JFrame {
     private javax.swing.JTextField cpEmail;
     private javax.swing.JTextField cpEndereco;
     private javax.swing.JTextField cpEstado;
+    private javax.swing.JTextField cpMatricula;
     private javax.swing.JTextField cpNome;
     private javax.swing.JTextField cpNumero;
     private javax.swing.JTextField cpPais;
@@ -487,6 +509,7 @@ public class cadastra_alouno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
