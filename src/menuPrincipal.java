@@ -336,7 +336,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMatriActionPerformed
 
     private void btnFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncActionPerformed
-      new cadastroDeFuncuinarios().setVisible(true);
+      new cadastroDeFuncionarios().setVisible(true);
       this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFuncActionPerformed
