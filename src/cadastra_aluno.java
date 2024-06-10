@@ -1,17 +1,13 @@
 
-
-import Dados.Alunos;
+import Metodos.Alunos;
 import dados.AlunoDao;
 
-public class cadastra_alouno extends javax.swing.JFrame {
+public class cadastra_aluno extends javax.swing.JFrame {
 
-  
-    
-    public cadastra_alouno() {
+    public cadastra_aluno() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -23,7 +19,6 @@ public class cadastra_alouno extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cpNome = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cpDataN = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
         cpCpf = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -44,6 +39,9 @@ public class cadastra_alouno extends javax.swing.JFrame {
         cpPais = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         cpSx = new javax.swing.JComboBox<>();
+        cpMatricula = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        cpDataN = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         btnSimF = new javax.swing.JRadioButton();
@@ -114,6 +112,9 @@ public class cadastra_alouno extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("Matricula:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -126,7 +127,8 @@ public class cadastra_alouno extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel9)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel13))
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -159,7 +161,8 @@ public class cadastra_alouno extends javax.swing.JFrame {
                                     .addComponent(cpNumero)
                                     .addComponent(cpCpf)
                                     .addComponent(cpCidade)))))
-                    .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -203,7 +206,10 @@ public class cadastra_alouno extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -336,7 +342,7 @@ public class cadastra_alouno extends javax.swing.JFrame {
                     .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(48, 48, 48)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btnSalvarcd)
                 .addGap(35, 35, 35))
         );
@@ -355,107 +361,51 @@ public class cadastra_alouno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cpCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpCidadeActionPerformed
+    private void btnSalvarcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarcdActionPerformed
+        String nome, endereco, estado, bairro, pais, cidade, email;
+
+        double cpf, celular = 0, numero, datanasc, matricula;
+
+        nome = cpNome.getText();
+        email = cpEmail.getText();
+        bairro = cpBairro.getText();
+        endereco = cpEndereco.getText();
+        pais = cpPais.getText();
+        estado = cpEstado.getText();
+        cidade = cpCidade.getText();
+        numero = Double.parseDouble(cpNumero.getText());
+        datanasc = Double.parseDouble(cpDataN.getText());
+        cpf = Double.parseDouble(cpCpf.getText());
+        celular = Double.parseDouble(cpCelular.getText());
+        matricula = Double.parseDouble(cpMatricula.getText());
+        Alunos objaluno = new Alunos();
+
+        objaluno.setNome(nome);
+        objaluno.setCpf(cpf);
+        objaluno.setCelular(celular);
+        objaluno.setDataNasc(datanasc);
+        objaluno.setCidade(cidade);
+        objaluno.setEmail(email);
+        objaluno.setPais(pais);
+        objaluno.setEndereco(endereco);
+        objaluno.setEstado(estado);
+        objaluno.setBairro(bairro);
+        objaluno.setNumero(numero);
+         objaluno.setMatricula(matricula);
+        AlunoDao objalunodao = new AlunoDao();
+        objalunodao.CadastroAluno(objaluno);
+
+
+    }//GEN-LAST:event_btnSalvarcdActionPerformed
 
     private void cpSxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpSxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpSxActionPerformed
 
-    private void btnSalvarcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarcdActionPerformed
-    
-    Alunos aluno;
-        
-    AlunoDao Dao;
-    boolean conec;
-    int resp;
-        
-        
-    aluno = new Alunos(); 
-    aluno.setNome(cpNome.getText());
-    aluno.setCpf(Double.parseDouble(cpCpf.getText()));  
-    aluno.setNome(cpEstado.getText()); 
-    aluno.setPais(cpPais.getText());    
-    aluno.setBairro(cpBairro.getText());    
-    aluno.setEmail(cpEmail.getText());    
-    aluno.setEndereco(cpEndereco.getText());    
-    aluno.setCidade(cpCidade.getText());   
-    aluno.setNumero(Double.parseDouble(cpNumero.getText()));    
-    aluno.setCelular(Double.parseDouble(cpCelular.getText()));    
-      
-        
-    
-    Dao = new AlunoDao();
-    conec = Dao.conectar();
-       
-    if (conec==false){
-    JOnpitionPane.showMessagerDialog(null,"erro de conexão!");
+    private void cpCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCidadeActionPerformed
 
-    }else{
-
-       resp =Dao.Salva(aluno);
-    if (resp==1){
-     JOnpitionPane.showMessagerDialog(null,"dados recebidos!");
-     apagar();
-
-
-    }//GEN-LAST:event_btnSalvarcdActionPerformed
-
-    Dao.desconectar();
-    
-    }
-    }                                           
-public void apagar() {
-cpNome.setText("");
-     cpEndereco.setText("");
-     cpCpf.setText("");
-     cpPais.setText("");
-     cpNumero.setText("");
-     cpCelular.setText("");
-    cpEmail.setText("");
-    cpCidade.setText("");
-    cpBairro.setText("");
-    cpEstado.setText("");
-  
-
-}
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastra_alouno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastra_alouno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastra_alouno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastra_alouno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new cadastra_alouno().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton btnNf;
@@ -465,11 +415,12 @@ cpNome.setText("");
     private javax.swing.JTextField cpCelular;
     private javax.swing.JTextField cpCidade;
     private javax.swing.JTextField cpCpf;
-    private javax.swing.JFormattedTextField cpDataN;
+    private javax.swing.JTextField cpDataN;
     private javax.swing.JTextField cpDiciencia;
     private javax.swing.JTextField cpEmail;
     private javax.swing.JTextField cpEndereco;
     private javax.swing.JTextField cpEstado;
+    private javax.swing.JTextField cpMatricula;
     private javax.swing.JTextField cpNome;
     private javax.swing.JTextField cpNumero;
     private javax.swing.JTextField cpPais;
@@ -484,6 +435,7 @@ cpNome.setText("");
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -498,6 +450,4 @@ cpNome.setText("");
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-
-   
 }

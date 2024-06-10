@@ -1,18 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author kelit
- */
 public class caixa extends javax.swing.JFrame {
 
-    /**
-     * Creates new form caixa
-     */
     public caixa() {
         initComponents();
     }
@@ -441,11 +429,5 @@ public class caixa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 
-    //void visible() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
-
-    //void visible(boolean b) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
+  
 }

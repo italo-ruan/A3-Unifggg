@@ -1,10 +1,18 @@
 
-package dados;
+package Metodos;
 
 
 public class Matricula {
 
-    private String Matricula;
+    private double Datac;
+
+    public double getDatac() {
+        return Datac;
+    }
+
+    public void setDatac(double Datac) {
+        this.Datac = Datac;
+    }
     private double Valor;
     private String Modalidade;
     private String Aluno;
@@ -12,18 +20,28 @@ public class Matricula {
     private double dataVc;
     private String Fpagamento;
     private String CondPagamento;
+    private double Matricula;
+    private double ValorM;
 
-    public Matricula() {
-    }
-
-    public String getMatricula() {
+    public double getMatricula() {
         return Matricula;
     }
 
-    public void setMatricula(String Matricula) {
-        this.Matricula = Matricula;
+    public double getValorM() {
+        return ValorM;
     }
 
+    public void setValorM(double ValorM) {
+        this.ValorM = ValorM;
+    }
+
+    public void setMatricula(double Matricula) {
+        this.Matricula = Matricula;
+    }
+    public Matricula() {
+    }
+
+  
     public double getValor() {
         return Valor;
     }

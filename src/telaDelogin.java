@@ -1,13 +1,12 @@
 
+import Metodos.UsuarioD;
+import dados.UsuarioDao;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class telaDelogin extends javax.swing.JFrame {
-   
-   
-    
-    
-  ConexaoBD conn = new ConexaoBD();
-    private Object menuPrncipal;
+
     public telaDelogin() {
         initComponents();
     }
@@ -95,6 +94,11 @@ public class telaDelogin extends javax.swing.JFrame {
 
         btnCada.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 11)); // NOI18N
         btnCada.setText("Cadastrar");
+        btnCada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadaActionPerformed(evt);
+            }
+        });
 
         btnEntrar.setFont(new java.awt.Font("Verdana", 3, 11)); // NOI18N
         btnEntrar.setText("Entrar");
@@ -202,40 +206,61 @@ public class telaDelogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cpPasswordActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-    if (cpLogin.getText().equals("k")&& cpPassword.getText().equals("123")){
-    
-    
-     menuPrincipal obj = new menuPrincipal();
-    
-    obj.setVisible(true);
-    
-    this.dispose();
-    
-    }else{
-    JOptionPane.showMessageDialog(null, "senha ou usuario incorretos!");
-    
-    }
 
+        try {
+
+            String nome_Usuario, nome_Senha;
+
+            nome_Usuario = cpLogin.getText();
+            nome_Senha = cpPassword.getText();
+
+            UsuarioD objUsuarioD = new UsuarioD();
+            objUsuarioD.setUsuario(nome_Usuario);
+            objUsuarioD.setPassword(nome_Senha);
+
+            UsuarioDao objUsuarioDao = new UsuarioDao();
+            ResultSet rsUsuariodao = objUsuarioDao.autenticar(objUsuarioD);
+
+            if (rsUsuariodao.next()) {
+                // chamar a tela
+
+                menuPrincipal objmenuprincipal = new menuPrincipal();
+
+                objmenuprincipal.setVisible(true);
+
+                this.dispose();
+
+            } else {
+                // enviar mensagem de erro
+                JOptionPane.showMessageDialog(null, "Usuario ou senha incorretos !");
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "telaLogin" + erro);
+        }
+
+       
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void cpLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpLoginActionPerformed
 
+    private void btnCadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadaActionPerformed
+
+    }//GEN-LAST:event_btnCadaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-   public static void main(String args[]) {
-       
-       
-       
+    public static void main(String args[]) {
 
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new telaDelogin().setVisible(true);
-                }
-            });
+            public void run() {
+                new telaDelogin().setVisible(true);
+            }
+        });
         //</editor-fold>
     }
 

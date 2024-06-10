@@ -1,26 +1,26 @@
-package Dados;
+package Metodos;
 
-public class aluno {
-   //atributos da classe 
-  private String nome;
-  private String endereco;
-  private String estado;
-  private String bairro;
-  private String email;
-  private double cpf;
-  private double celular;
-  private String pais;
-  private String cidade;
-  private double numero;
-  private double DataNasc;
-  
-  
-  //construtor da classe
+public class Alunos {
+    //atributos da classe 
 
-    public aluno() {
-        
+    private String nome;
+    private String endereco;
+    private String estado;
+    private String bairro;
+    private String email;
+    private double cpf;
+    private double celular;
+    private String pais;
+    private String cidade;
+    private double numero;
+    private double DataNasc;
+    private double matricula;
+
+    //construtor da classe
+    public Alunos() {
 
     }
+
     public String getNome() {
         return nome;
     }
@@ -65,7 +65,7 @@ public class aluno {
         return cpf;
     }
 
-    public void setCpf(Double cpf) {
+    public void setCpf(double cpf) {
         this.cpf = cpf;
     }
 
@@ -97,7 +97,7 @@ public class aluno {
         return numero;
     }
 
-    public void setNumero(Double numero) {
+    public void setNumero(double numero) {
         this.numero = numero;
     }
 
@@ -105,28 +105,18 @@ public class aluno {
         return DataNasc;
     }
 
-    public void setDataNasc(int DataNasc) {
+    public void setDataNasc(double DataNasc) {
         this.DataNasc = DataNasc;
     }
-  
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public double getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(double matricula) {
+        this.matricula = matricula;
+    }
+
     
     
 }

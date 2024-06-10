@@ -1,37 +1,13 @@
 
-import java.util.HashSet;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author kelit
- */
 public class menuPrincipal extends javax.swing.JFrame {
 
-    static Object setText() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    static Object setVisible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     * Creates new form menuPrincipal
-     */
+  
     public menuPrincipal() {
         initComponents();
     }
 
-    menuPrincipal(telaDelogin aThis, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -280,7 +256,7 @@ public class menuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 415, Short.MAX_VALUE))
         );
 
@@ -303,15 +279,15 @@ public class menuPrincipal extends javax.swing.JFrame {
     private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
     
         new caixa().setVisible(true);
-        this.dispose();
+      
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCaixaActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
     
-        new cadastra_alouno().setVisible(true);
-        this.dispose();
+       new cadastra_aluno().setVisible(true);
+      
 
 
         // TODO add your handling code here:
@@ -319,7 +295,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
     new tabela().setVisible(true);
-    //this.dispose();
+    
     
 
 
@@ -329,7 +305,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void btnMatriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatriActionPerformed
      new matricula().setVisible(true);
-     this.dispose();
+    
 
 
         // TODO add your handling code here:
@@ -337,7 +313,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void btnFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncActionPerformed
       new cadastroDeFuncionarios().setVisible(true);
-      this.dispose();
+     
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFuncActionPerformed
 
