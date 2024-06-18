@@ -1,12 +1,13 @@
 
 import Metodos.UsuarioD;
 import dados.UsuarioDao;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class telaDelogin extends javax.swing.JFrame {
-
+    
     public telaDelogin() {
         initComponents();
     }
@@ -206,41 +207,41 @@ public class telaDelogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cpPasswordActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-
+        
         try {
-
+            
             String nome_Usuario, nome_Senha;
-
+            
             nome_Usuario = cpLogin.getText();
             nome_Senha = cpPassword.getText();
-
+            
             UsuarioD objUsuarioD = new UsuarioD();
             objUsuarioD.setUsuario(nome_Usuario);
             objUsuarioD.setPassword(nome_Senha);
-
+            
             UsuarioDao objUsuarioDao = new UsuarioDao();
             ResultSet rsUsuariodao = objUsuarioDao.autenticar(objUsuarioD);
-
+            
             if (rsUsuariodao.next()) {
                 // chamar a tela
 
                 menuPrincipal objmenuprincipal = new menuPrincipal();
-
+                
                 objmenuprincipal.setVisible(true);
-
+                
                 this.dispose();
-
+                
             } else {
                 // enviar mensagem de erro
                 JOptionPane.showMessageDialog(null, "Usuario ou senha incorretos !");
             }
-
+            
         } catch (SQLException erro) {
-
+            
             JOptionPane.showMessageDialog(null, "telaLogin" + erro);
         }
+        
 
-       
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void cpLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpLoginActionPerformed
@@ -248,14 +249,20 @@ public class telaDelogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cpLoginActionPerformed
 
     private void btnCadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadaActionPerformed
-
+      new Cadastrar().setVisible(true);
+      this.dispose();
+      
+    //Salvar();
+    
+    
+    
     }//GEN-LAST:event_btnCadaActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new telaDelogin().setVisible(true);
@@ -281,4 +288,16 @@ public class telaDelogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
+
+    public void Salvar(){
+String Usuario,Senha;
+Usuario = cpLogin.getText();
+Senha = cpPassword.getText();
+UsuarioD objUser = new UsuarioD();
+objUser.setUsuario(Usuario);
+objUser.setPassword(Senha);
+ UsuarioDao objalunodao = new UsuarioDao();
+        objalunodao.SalvarLogin(objUser);
+
+}
 }

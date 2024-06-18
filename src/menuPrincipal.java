@@ -294,7 +294,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
-    new tabela().setVisible(true);
+    new Tabela().setVisible(true);
     
     
 

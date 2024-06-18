@@ -1,21 +1,19 @@
 
 import Metodos.Alunos;
 import dados.AlunoDao;
-
-
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class tabela extends javax.swing.JFrame {
+public class Tabela extends javax.swing.JFrame {
 
-    public tabela() {
+    public Tabela() {
         initComponents();
-        
-      listaValores();
-        
+
+        listaValores();
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,19 +49,28 @@ public class tabela extends javax.swing.JFrame {
         tabela1.setAutoCreateRowSorter(true);
         tabela1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nº da Matricula", "Nome", "Cpf", "Data do cadastro", "Modalidade", "valor"
+                "Nº da Matricula", "Nome", "Cpf", "Endereço", "N°", "Bairro", "Cidade", "Estado", "Pais", "Email", "Celular", "Data de Entrada"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,7 +95,7 @@ public class tabela extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addGap(0, 259, Short.MAX_VALUE))
+                .addGap(0, 277, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +150,9 @@ public class tabela extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,15 +201,22 @@ public class tabela extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) tabela1.getModel();
             model.setNumRows(0);
             ArrayList<Alunos> lista = objalunodao.ListaAluno();
-            
-            
+
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
                     lista.get(num).getMatricula(),
-                    lista.get(num).getNome()
-      
-      
-      
+                    lista.get(num).getNome(),
+                    lista.get(num).getEmail(),
+                    lista.get(num).getCpf(),
+                    lista.get(num).getDataNasc(),
+                    lista.get(num).getCelular(),
+                    lista.get(num).getPais(),
+                    lista.get(num).getEstado(),
+                    lista.get(num).getCidade(),
+                    lista.get(num).getEndereco(),
+                    lista.get(num).getBairro(),
+                    lista.get(num).getNumero()
+
                 });
 
             }
@@ -211,5 +227,13 @@ public class tabela extends javax.swing.JFrame {
         }
 
     }
+
+
+   private void preencher(){
+int Setar = tabela1.getSelectedRow();
+
+
+
+} 
 
 }

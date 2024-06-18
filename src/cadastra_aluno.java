@@ -1,11 +1,15 @@
 
 import Metodos.Alunos;
 import dados.AlunoDao;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class cadastra_aluno extends javax.swing.JFrame {
 
     public cadastra_aluno() {
         initComponents();
+        listaValores();
     }
 
     @SuppressWarnings("unchecked")
@@ -42,17 +46,16 @@ public class cadastra_aluno extends javax.swing.JFrame {
         cpMatricula = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         cpDataN = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        btnSimF = new javax.swing.JRadioButton();
-        btnNf = new javax.swing.JRadioButton();
-        jLabel15 = new javax.swing.JLabel();
-        cpDiciencia = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         fotocA = new javax.swing.JLabel();
         btnSalvarcd = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabela1 = new javax.swing.JTable();
+        btnPreencher = new javax.swing.JButton();
+        btnEditar = new javax.swing.JToggleButton();
+        btnExcluir = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -163,7 +166,7 @@ public class cadastra_aluno extends javax.swing.JFrame {
                                     .addComponent(cpCidade)))))
                     .addComponent(cpSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,55 +215,6 @@ public class cadastra_aluno extends javax.swing.JFrame {
                     .addComponent(jLabel18)))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel14.setText("Possui Alguma deficiência fisica ?");
-
-        btnSimF.setText("Sim");
-
-        btnNf.setText("Não");
-
-        jLabel15.setText("Se Sim, Qual ?");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnSimF)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNf))
-                    .addComponent(jLabel14))
-                .addGap(114, 114, 114)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(cpDiciencia, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSimF)
-                            .addComponent(btnNf))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(cpDiciencia, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                        .addGap(41, 41, 41))))
-        );
-
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
 
@@ -280,7 +234,7 @@ public class cadastra_aluno extends javax.swing.JFrame {
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,12 +249,67 @@ public class cadastra_aluno extends javax.swing.JFrame {
         fotocA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Design sem nome (10).png"))); // NOI18N
         fotocA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnSalvarcd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalvarcd.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSalvarcd.setForeground(new java.awt.Color(0, 255, 0));
         btnSalvarcd.setText("Salvar");
         btnSalvarcd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarcdActionPerformed(evt);
+            }
+        });
+
+        tabela1.setAutoCreateRowSorter(true);
+        tabela1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nº da Matricula", "Nome", "Cpf", "Endereço", "N°", "Bairro", "Cidade", "Estado", "Pais", "Email", "Celular", "Data de Entrada"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabela1);
+
+        btnPreencher.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPreencher.setText("Preencher");
+        btnPreencher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreencherActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
             }
         });
 
@@ -311,24 +320,31 @@ public class cadastra_aluno extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(352, 352, 352)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnExcluir)
+                        .addGap(62, 62, 62)
+                        .addComponent(btnEditar)
+                        .addGap(61, 61, 61)
+                        .addComponent(btnPreencher)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSalvarcd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(123, 123, 123)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSalvarcd)
-                .addGap(342, 342, 342))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,64 +354,41 @@ public class cadastra_aluno extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(48, 48, 48)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(btnSalvarcd)
-                .addGap(35, 35, 35))
+                    .addComponent(fotocA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditar)
+                    .addComponent(btnPreencher)
+                    .addComponent(btnSalvarcd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluir))
+                .addGap(123, 123, 123))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1, 1, 1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarcdActionPerformed
-        String nome, endereco, estado, bairro, pais, cidade, email;
-
-        double cpf, celular = 0, numero, datanasc, matricula;
-
-        nome = cpNome.getText();
-        email = cpEmail.getText();
-        bairro = cpBairro.getText();
-        endereco = cpEndereco.getText();
-        pais = cpPais.getText();
-        estado = cpEstado.getText();
-        cidade = cpCidade.getText();
-        numero = Double.parseDouble(cpNumero.getText());
-        datanasc = Double.parseDouble(cpDataN.getText());
-        cpf = Double.parseDouble(cpCpf.getText());
-        celular = Double.parseDouble(cpCelular.getText());
-        matricula = Double.parseDouble(cpMatricula.getText());
-        Alunos objaluno = new Alunos();
-
-        objaluno.setNome(nome);
-        objaluno.setCpf(cpf);
-        objaluno.setCelular(celular);
-        objaluno.setDataNasc(datanasc);
-        objaluno.setCidade(cidade);
-        objaluno.setEmail(email);
-        objaluno.setPais(pais);
-        objaluno.setEndereco(endereco);
-        objaluno.setEstado(estado);
-        objaluno.setBairro(bairro);
-        objaluno.setNumero(numero);
-         objaluno.setMatricula(matricula);
-        AlunoDao objalunodao = new AlunoDao();
-        objalunodao.CadastroAluno(objaluno);
-
-
+        CadastrarAluno();
+        listaValores();
+        LimparCampo();
     }//GEN-LAST:event_btnSalvarcdActionPerformed
 
     private void cpSxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpSxActionPerformed
@@ -406,17 +399,34 @@ public class cadastra_aluno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cpCidadeActionPerformed
 
+    private void btnPreencherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreencherActionPerformed
+
+        preencher();
+    }//GEN-LAST:event_btnPreencherActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        Editar();
+        listaValores();
+        LimparCampo();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        Excluir();
+        listaValores();
+        listaValores();
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton btnNf;
+    private javax.swing.JToggleButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnPreencher;
     private javax.swing.JButton btnSalvarcd;
-    private javax.swing.JRadioButton btnSimF;
     private javax.swing.JTextField cpBairro;
     private javax.swing.JTextField cpCelular;
     private javax.swing.JTextField cpCidade;
     private javax.swing.JTextField cpCpf;
     private javax.swing.JTextField cpDataN;
-    private javax.swing.JTextField cpDiciencia;
     private javax.swing.JTextField cpEmail;
     private javax.swing.JTextField cpEndereco;
     private javax.swing.JTextField cpEstado;
@@ -431,8 +441,6 @@ public class cadastra_aluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -446,8 +454,162 @@ public class cadastra_aluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tabela1;
     // End of variables declaration//GEN-END:variables
+
+    private void LimparCampo() {
+        cpNome.setText("");
+        cpBairro.setText("");
+        cpCelular.setText("");
+        cpCidade.setText("");
+        cpDataN.setText("");
+
+        cpEmail.setText("");
+        cpEndereco.setText("");
+        cpEstado.setText("");
+        cpMatricula.setText("");
+        cpNumero.setText("");
+        cpPais.setText("");
+        cpNome.requestFocus();
+    }
+
+    private void listaValores() {
+        try {
+            AlunoDao objalunodao = new AlunoDao();
+
+            DefaultTableModel model = (DefaultTableModel) tabela1.getModel();
+            model.setNumRows(0);
+            ArrayList<Alunos> lista = objalunodao.ListaAluno();
+
+            for (int num = 0; num < lista.size(); num++) {
+                model.addRow(new Object[]{
+                    lista.get(num).getMatricula(),
+                    lista.get(num).getNome(),
+                    lista.get(num).getCpf(),
+                    lista.get(num).getEndereco(),
+                    lista.get(num).getNumero(),
+                    lista.get(num).getBairro(),
+                    lista.get(num).getCidade(),
+                    lista.get(num).getEstado(),
+                    lista.get(num).getPais(),
+                    lista.get(num).getEmail(),
+                    lista.get(num).getCelular(),
+                    lista.get(num).getDataNasc(),});
+
+            }
+
+        } catch (Exception erro) {
+
+            JOptionPane.showMessageDialog(null, "lista de valores " + erro);
+        }
+
+    }
+
+    private void preencher() {
+        int Setar = tabela1.getSelectedRow();
+        cpMatricula.setText(tabela1.getModel().getValueAt(Setar, 0).toString());
+        cpNome.setText(tabela1.getModel().getValueAt(Setar, 1).toString());
+
+        cpCpf.setText(tabela1.getModel().getValueAt(Setar, 2).toString());
+        cpEndereco.setText(tabela1.getModel().getValueAt(Setar, 3).toString());
+        cpNumero.setText(tabela1.getModel().getValueAt(Setar, 4).toString());
+
+        cpBairro.setText(tabela1.getModel().getValueAt(Setar, 5).toString());
+        cpCidade.setText(tabela1.getModel().getValueAt(Setar, 6).toString());
+        cpEstado.setText(tabela1.getModel().getValueAt(Setar, 7).toString());
+        cpPais.setText(tabela1.getModel().getValueAt(Setar, 8).toString());
+        cpEmail.setText(tabela1.getModel().getValueAt(Setar, 9).toString());
+        cpCelular.setText(tabela1.getModel().getValueAt(Setar, 10).toString());
+        cpDataN.setText(tabela1.getModel().getValueAt(Setar, 11).toString());
+
+    }
+
+    private void CadastrarAluno() {
+
+        String nome, endereco, estado, bairro, pais, cidade, email;
+        int matricula;
+        double cpf, celular, numero, datanasc;
+
+        nome = cpNome.getText();
+        email = cpEmail.getText();
+        bairro = cpBairro.getText();
+        endereco = cpEndereco.getText();
+        pais = cpPais.getText();
+        estado = cpEstado.getText();
+        cidade = cpCidade.getText();
+        numero = Double.parseDouble(cpNumero.getText());
+        datanasc = Double.parseDouble(cpDataN.getText());
+        cpf = Double.parseDouble(cpCpf.getText());
+        celular = Double.parseDouble(cpCelular.getText());
+        matricula = Integer.parseInt(cpMatricula.getText());
+        Alunos objaluno = new Alunos();
+
+        objaluno.setNome(nome);
+        objaluno.setCpf(cpf);
+        objaluno.setCelular(celular);
+        objaluno.setDataNasc(datanasc);
+        objaluno.setCidade(cidade);
+        objaluno.setEmail(email);
+        objaluno.setPais(pais);
+        objaluno.setEndereco(endereco);
+        objaluno.setEstado(estado);
+        objaluno.setBairro(bairro);
+        objaluno.setNumero(numero);
+        objaluno.setMatricula((int) matricula);
+        AlunoDao objalunodao = new AlunoDao();
+        objalunodao.CadastroAluno(objaluno);
+    }
+
+    private void Editar() {
+        int Matricula;
+        double cpf, celular, dataNasc, numero;
+        String Nome, endereco, pais, bairro, cidade, estado, email;
+
+        Matricula = Integer.parseInt(cpMatricula.getText());
+        celular = Double.parseDouble(cpCelular.getText());
+        cpf = Double.parseDouble(cpCpf.getText());
+        dataNasc = Double.parseDouble(cpDataN.getText());
+        numero = Double.parseDouble(cpNumero.getText());
+        Nome = cpNome.getText();
+        endereco = cpEndereco.getText();
+        cidade = cpCidade.getText();
+        pais = cpPais.getText();
+        estado = cpEstado.getText();
+        email = cpEmail.getText();
+        bairro = cpBairro.getText();
+
+        Alunos objalunos = new Alunos();
+        objalunos.setMatricula(Matricula);
+        objalunos.setNome(Nome);
+        objalunos.setCpf(cpf);
+        objalunos.setCelular(celular);
+        objalunos.setDataNasc(dataNasc);
+        objalunos.setCidade(cidade);
+        objalunos.setEmail(email);
+        objalunos.setPais(pais);
+        objalunos.setEndereco(endereco);
+        objalunos.setEstado(estado);
+        objalunos.setBairro(bairro);
+        objalunos.setNumero(numero);
+
+        AlunoDao objalunodao = new AlunoDao();
+        objalunodao.editar(objalunos);
+
+    }
+
+    private void Excluir() {
+        int Matricula;
+        Matricula = Integer.parseInt(cpMatricula.getText());
+        Alunos objalunos = new Alunos();
+
+        objalunos.setMatricula(Matricula);
+
+        AlunoDao objalunodao = new AlunoDao();
+        objalunodao.excluir(objalunos);
+
+    }
+
 }

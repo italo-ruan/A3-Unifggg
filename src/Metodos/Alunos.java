@@ -14,7 +14,7 @@ public class Alunos {
     private String cidade;
     private double numero;
     private double DataNasc;
-    private double matricula;
+    private int matricula;
 
     //construtor da classe
     public Alunos() {
@@ -109,13 +109,20 @@ public class Alunos {
         this.DataNasc = DataNasc;
     }
 
-    public double getMatricula() {
+   
+    
+
+    
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+  
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(double matricula) {
-        this.matricula = matricula;
-    }
+   
 
     
     
